@@ -1,15 +1,20 @@
 import 'package:flutter/material.dart';
+import 'package:scoped_model/scoped_model.dart';
 
-import 'chat_page.dart';
+import './AllChatsPage.dart';
+import './ChatModel.dart';
 
-void main() => runApp(MyMaterial());
+void main() => runApp(MyApp());
 
-class MyMaterial extends StatelessWidget {
+class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
-      debugShowCheckedModeBanner: false,
-      home: ChatPage(),
+    return ScopedModel(
+      model: ChatModel(),
+      child: MaterialApp(
+        debugShowCheckedModeBanner: false,
+        home: AllChatsPage(),
+      ),
     );
   }
 }
